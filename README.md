@@ -1,38 +1,13 @@
 # 便签应用
 
-一个基于 GitHub Pages 的轻量级静态便签应用。
+一个轻量级的静态便签应用。
 
 ## 特点
 
-- 🚀 **零成本托管** - 使用 GitHub Pages 免费托管
-- 📝 **简易发布** - 通过提交代码发布新便签
+- 📝 **简易发布** - 通过 Python 脚本添加便签
 - 🏷️ **标签管理** - 支持多标签分类和过滤
 - 📱 **响应式设计** - 适配手机和电脑
 - 🎨 **简约主题** - 浅黄配色，清爽界面
-
-## 快速开始
-
-### 1. 部署到 GitHub
-
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
-git push -u origin main
-```
-
-### 2. 启用 GitHub Pages
-
-1. 进入仓库 **Settings** → **Pages**
-2. **Source** 选择 `Deploy from a branch`
-3. **Branch** 选择 `main`，文件夹选择 `/ (root)`
-4. 点击 **Save**
-
-### 3. 访问便签
-
-访问 `https://YOUR_USERNAME.github.io/YOUR_REPO/`
 
 ## 添加便签
 
@@ -49,15 +24,13 @@ python scripts/add_note.py "重要事项" --tags "工作，重要"
 python scripts/add_note.py "置顶通知" --tags "公告" --pinned
 ```
 
-### 发布便签到 GitHub
+### 提交便签
 
 ```bash
 git add data/notes.json
 git commit -m "添加便签：便签标题"
 git push
 ```
-
-推送后约 1 分钟，新便签就会同步到 GitHub Pages。
 
 ## 项目结构
 
