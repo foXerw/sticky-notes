@@ -90,7 +90,7 @@ def add_note(content, tags_str=None, pinned=False):
 def main():
     parser = argparse.ArgumentParser(
         description='添加便签',
-        formatter_style=argparse.RawDescriptionHelpFormatter,
+        formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog='''
 示例:
     python add_note.py "这是便签内容"
@@ -110,7 +110,7 @@ def main():
 
     note = add_note(args.content, args.tags, args.pinned)
 
-    print(f"✓ 便签已添加!")
+    print("[OK] 便签已添加!")
     print(f"  ID: {note['id']}")
     print(f"  标题：{note['title']}")
     print(f"  日期：{note['date']}")
