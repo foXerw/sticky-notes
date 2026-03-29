@@ -20,6 +20,7 @@ const Renderer = {
                 ${pinnedHtml}
                 <h3 class="note-title">${this.escapeHtml(note.title)}</h3>
                 <div class="note-content">${this.formatContent(note.content)}</div>
+                <button class="note-expand-btn">展开 <span class="arrow">▼</span></button>
                 <div class="note-meta">
                     <span class="note-date">${note.date}</span>
                     <div class="note-tags">${tagsHtml}</div>

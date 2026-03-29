@@ -59,6 +59,15 @@ const App = {
                 this.setTag(tag);
             }
         });
+
+        // 便签展开/收起（委托事件）
+        const notesContainer = document.getElementById('notesContainer');
+        notesContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('note-expand-btn') || e.target.classList.contains('arrow')) {
+                const card = e.target.closest('.note-card');
+                card.classList.toggle('expanded');
+            }
+        });
     },
 
     /**
@@ -127,6 +136,7 @@ const App = {
         this.renderTags();
         this.setView(this.data.currentView);
         this.checkEmpty();
+        this.checkExpandButtons();
     },
 
     /**
@@ -165,6 +175,32 @@ const App = {
             container.style.display = '';
             emptyState.style.display = 'none';
         }
+    },
+
+    /**
+     * 检查并显示/隐藏展开按钮
+     * 如果内容可以完全显示，则隐藏展开按钮
+     */
+    checkExpandButtons() {
+        const cards = document.querySelectorAll('.note-card');
+
+        cards.forEach(card => {
+            const content = card.querySelector('.note-content');
+            const expandBtn = card.querySelector('.note-expand-btn');
+
+            if (!content || !expandBtn) return;
+
+            // 检查内容是否实际溢出
+            const isOverflowing = content.scrollHeight > content.clientHeight;
+
+            if (isOverflowing) {
+                content.classList.add('needs-expand');
+                expandBtn.style.display = 'block';
+            } else {
+                content.classList.remove('needs-expand');
+                expandBtn.style.display = 'none';
+            }
+        });
     }
 };
 
