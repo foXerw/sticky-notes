@@ -1,16 +1,33 @@
-/* CSS 变量 - 单色主题 */
+/* 简约浅黄主题 - 便签应用 */
+
 :root {
-    --bg-primary: #f5f5f5;
-    --bg-secondary: #ffffff;
-    --text-primary: #333333;
-    --text-secondary: #666666;
-    --text-muted: #999999;
-    --border-color: #e0e0e0;
-    --note-bg: #ffffff;
-    --note-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    --note-shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.15);
-    --accent-color: #4a90d9;
-    --accent-hover: #357abd;
+    /* 浅黄色系主题 */
+    --bg-primary: #FDFBF7;        /* 米白背景 */
+    --bg-secondary: #FFFFFF;       /* 纯白卡片 */
+    --bg-accent: #F5F0E1;          /* 浅黄装饰 */
+
+    --text-primary: #4A4A4A;       /* 深灰文字 */
+    --text-secondary: #7A7A7A;     /* 中灰文字 */
+    --text-muted: #B8B8B8;         /* 浅灰文字 */
+
+    --border-color: #E8E4D9;       /* 暖色边框 */
+    --border-light: #F0ECE2;       /* 轻边框 */
+
+    /* 主题色 - 暖黄色 */
+    --accent-color: #D4A853;       /* 金黄主色 */
+    --accent-light: #E8C97B;       /* 浅金 */
+    --accent-dark: #B89040;        /* 深金 */
+
+    /* 便签卡片 */
+    --note-bg: #FFFEF9;            /* 米白便签 */
+    --note-shadow: 0 1px 3px rgba(168, 148, 100, 0.15);
+    --note-shadow-hover: 0 4px 12px rgba(168, 148, 100, 0.2);
+
+    /* 标签颜色 - 柔和色系 */
+    --tag-bg: #F5F0E1;
+    --tag-text: #8B7D6B;
+    --tag-hover: #D4A853;
+    --tag-hover-text: #FFFFFF;
 }
 
 /* 基础重置 */
@@ -20,19 +37,25 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
     background-color: var(--bg-primary);
     color: var(--text-primary);
-    line-height: 1.6;
+    line-height: 1.7;
     min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* 容器 */
 .container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 40px 24px;
 }
 
 /* 头部 */
@@ -40,70 +63,70 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
-    border-bottom: 1px solid var(--border-color);
-    margin-bottom: 20px;
+    padding: 24px 0 32px;
+    margin-bottom: 8px;
 }
 
 .header h1 {
-    font-size: 1.8rem;
-    font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: 500;
     color: var(--text-primary);
+    letter-spacing: 0.02em;
 }
 
 .header-controls {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
 }
 
-/* 视图切换按钮 */
+/* 视图切换 */
 .view-toggle {
     display: flex;
-    gap: 5px;
     background: var(--bg-secondary);
-    padding: 5px;
-    border-radius: 8px;
     border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .view-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
     border: none;
     background: transparent;
-    border-radius: 6px;
     cursor: pointer;
-    color: var(--text-secondary);
+    color: var(--text-muted);
     transition: all 0.2s ease;
 }
 
 .view-btn:hover {
-    background: var(--bg-primary);
-    color: var(--text-primary);
+    background: var(--bg-accent);
+    color: var(--text-secondary);
 }
 
 .view-btn.active {
     background: var(--accent-color);
-    color: white;
+    color: #FFFFFF;
 }
 
-/* 标签过滤栏 */
+/* 标签栏 */
 .tags-bar {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 15px 0;
-    margin-bottom: 20px;
+    gap: 12px;
+    padding: 16px 0 24px;
+    margin-bottom: 8px;
     flex-wrap: wrap;
 }
 
 .tags-label {
+    font-size: 0.85rem;
     font-weight: 500;
-    color: var(--text-secondary);
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
 }
 
 .tags-list {
@@ -113,95 +136,117 @@ body {
 }
 
 .tag-btn {
-    padding: 6px 12px;
-    border: 1px solid var(--border-color);
+    padding: 5px 14px;
+    border: 1px solid var(--border-light);
     background: var(--bg-secondary);
-    border-radius: 20px;
-    font-size: 0.85rem;
+    border-radius: 16px;
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: var(--text-secondary);
     cursor: pointer;
     transition: all 0.2s ease;
+    letter-spacing: 0.01em;
 }
 
 .tag-btn:hover {
-    border-color: var(--accent-color);
-    color: var(--accent-color);
+    border-color: var(--accent-light);
+    color: var(--accent-dark);
+    background: var(--bg-accent);
 }
 
 .tag-btn.active {
     background: var(--accent-color);
-    color: white;
+    color: #FFFFFF;
     border-color: var(--accent-color);
 }
 
-/* 便签容器 - 网格视图 */
+/* 便签容器 */
 .notes-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
 }
 
-/* 便签容器 - 列表视图 */
 .notes-list {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 16px;
 }
 
 /* 便签卡片 */
 .note-card {
     background: var(--note-bg);
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: var(--note-shadow);
-    transition: all 0.2s ease;
     border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 22px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.note-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20px;
+    right: 20px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-light), transparent);
+    opacity: 0;
+    transition: opacity 0.25s ease;
 }
 
 .note-card:hover {
     box-shadow: var(--note-shadow-hover);
     transform: translateY(-2px);
+    border-color: var(--accent-light);
 }
 
-/* 列表视图下的便签 */
+.note-card:hover::before {
+    opacity: 1;
+}
+
 .notes-list .note-card {
-    display: flex;
     flex-direction: column;
-    gap: 10px;
+    padding: 20px 24px;
 }
 
 .note-card.hidden {
     display: none;
 }
 
-/* 便签置顶标识 */
+/* 置顶标识 */
 .note-pinned {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
-    font-size: 0.75rem;
-    color: var(--accent-color);
+    gap: 5px;
+    font-size: 0.72rem;
     font-weight: 500;
-    margin-bottom: 8px;
+    color: var(--accent-color);
+    background: rgba(212, 168, 83, 0.1);
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
 }
 
 /* 便签标题 */
 .note-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 8px;
+    font-size: 1rem;
+    font-weight: 500;
     color: var(--text-primary);
+    margin-bottom: 12px;
+    line-height: 1.5;
 }
 
 /* 便签内容 */
 .note-content {
     color: var(--text-secondary);
-    font-size: 0.95rem;
-    line-height: 1.7;
+    font-size: 0.92rem;
+    line-height: 1.8;
     white-space: pre-wrap;
     word-break: break-word;
 }
 
-/* 列表视图内容限制 */
 .notes-list .note-content {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -214,15 +259,15 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 15px;
-    padding-top: 15px;
-    border-top: 1px solid var(--border-color);
-    font-size: 0.8rem;
-    color: var(--text-muted);
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-light);
 }
 
 .note-date {
+    font-size: 0.78rem;
     color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
 }
 
 .note-tags {
@@ -232,64 +277,72 @@ body {
 }
 
 .note-tag {
-    padding: 3px 8px;
-    background: var(--bg-primary);
-    border-radius: 12px;
-    font-size: 0.75rem;
-    color: var(--text-secondary);
+    padding: 3px 10px;
+    background: var(--tag-bg);
+    border-radius: 10px;
+    font-size: 0.73rem;
+    color: var(--tag-text);
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
 .note-tag:hover {
-    background: var(--accent-color);
-    color: white;
+    background: var(--tag-hover);
+    color: var(--tag-hover-text);
 }
 
 /* 空状态 */
 .empty-state {
     text-align: center;
-    padding: 60px 20px;
+    padding: 80px 24px;
     color: var(--text-muted);
 }
 
 .empty-state p {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 12px;
 }
 
 .empty-state .hint {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    opacity: 0.8;
 }
 
 .empty-state code {
     background: var(--bg-secondary);
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-family: monospace;
-    font-size: 0.85rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-family: "SF Mono", "Fira Code", monospace;
+    font-size: 0.8rem;
+    border: 1px solid var(--border-light);
 }
 
 /* 页脚 */
 .footer {
     text-align: center;
-    padding: 30px 0;
-    margin-top: 40px;
+    padding: 48px 0 24px;
+    margin-top: 32px;
     border-top: 1px solid var(--border-color);
     color: var(--text-muted);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    font-weight: 400;
 }
 
-/* 响应式设计 */
+/* 响应式 */
 @media (max-width: 768px) {
+    .container {
+        padding: 24px 16px;
+    }
+
     .header {
         flex-direction: column;
-        gap: 15px;
+        gap: 16px;
         text-align: center;
     }
 
     .header h1 {
-        font-size: 1.5rem;
+        font-size: 1.35rem;
     }
 
     .tags-bar {
@@ -309,27 +362,35 @@ body {
 
 .note-content em {
     font-style: italic;
+    color: var(--text-secondary);
 }
 
 .note-content code {
-    background: var(--bg-primary);
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-family: monospace;
-    font-size: 0.9em;
+    background: var(--bg-accent);
+    padding: 2px 7px;
+    border-radius: 5px;
+    font-family: "SF Mono", "Fira Code", monospace;
+    font-size: 0.88em;
+    color: var(--accent-dark);
 }
 
 .note-content ul,
 .note-content ol {
     margin: 10px 0;
-    padding-left: 20px;
+    padding-left: 24px;
+}
+
+.note-content li {
+    margin: 4px 0;
 }
 
 .note-content a {
     color: var(--accent-color);
     text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
 }
 
 .note-content a:hover {
-    text-decoration: underline;
+    border-bottom-color: var(--accent-color);
 }
