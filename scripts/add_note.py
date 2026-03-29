@@ -61,7 +61,7 @@ def add_note(content, tags_str=None, pinned=False):
     # 确定数据文件路径（支持从 scripts/ 目录调用）
     script_dir = os.path.dirname(os.path.abspath(__file__))
     project_root = os.path.dirname(script_dir)
-    data_file = os.path.join(project_root, 'src', 'data', 'notes.json')
+    data_file = os.path.join(project_root, 'data', 'notes.json')
 
     # 加载现有数据
     data = load_notes(data_file)
@@ -124,7 +124,7 @@ def main():
     if note['pinned']:
         print(f"  状态：已置顶")
     print(f"\n请提交 changes 到 GitHub 以发布便签:")
-    print(f"  git add src/data/notes.json")
+    print(f"  git add data/notes.json")
     print(f"  git commit -m '添加便签：{note['title']}'")
     print(f"  git push")
 

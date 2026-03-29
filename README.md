@@ -27,8 +27,8 @@ git push -u origin main
 
 1. 进入仓库 **Settings** → **Pages**
 2. **Source** 选择 `Deploy from a branch`
-3. **Branch** 选择 `main`，文件夹选择 `/src`
-4. 点击 Save
+3. **Branch** 选择 `main`，文件夹选择 `/ (root)`
+4. 点击 **Save**
 
 ### 3. 访问便签
 
@@ -52,7 +52,7 @@ python scripts/add_note.py "置顶通知" --tags "公告" --pinned
 ### 发布便签到 GitHub
 
 ```bash
-git add src/data/notes.json
+git add data/notes.json
 git commit -m "添加便签：便签标题"
 git push
 ```
@@ -64,17 +64,16 @@ git push
 ```
 .
 ├── assets/               # 静态资源
+├── css/
+│   └── main.css          # 样式
+├── data/
+│   └── notes.json        # 便签数据库
+├── js/
+│   ├── app.js            # 主逻辑
+│   └── renderer.js       # 渲染器
 ├── scripts/
 │   └── add_note.py       # 便签添加脚本
-├── src/
-│   ├── data/
-│   │   └── notes.json    # 便签数据库
-│   ├── index.html        # 主页面
-│   ├── css/
-│   │   └── main.css      # 样式
-│   └── js/
-│       ├── app.js        # 主逻辑
-│       └── renderer.js   # 渲染器
+├── index.html            # 主页面
 ├── README.md             # 本文件
 └── NOTE_FORMAT.md        # 便签格式规范
 ```
@@ -84,7 +83,6 @@ git push
 启动本地服务器：
 
 ```bash
-cd src
 python -m http.server 8000
 ```
 
