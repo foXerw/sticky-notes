@@ -24,7 +24,7 @@ const App = {
      */
     async loadNotes() {
         try {
-            const response = await fetch('../data/notes.json');
+            const response = await fetch('data/notes.json');
             if (!response.ok) {
                 throw new Error('Failed to load notes');
             }

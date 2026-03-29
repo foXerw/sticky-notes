@@ -5,7 +5,8 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(git config:*)",
-      "Bash(python scripts/add_note.py \"这是我的第一条便签！🎉 这个便签应用支持 **Markdown** 格式，还可以切换视图和标签过滤。\" --tags \"测试，欢迎\")"
+      "Bash(python scripts/add_note.py \"这是我的第一条便签！🎉 这个便签应用支持 **Markdown** 格式，还可以切换视图和标签过滤。\" --tags \"测试，欢迎\")",
+      "Bash(python -m http.server 8000)"
     ]
   }
 }
