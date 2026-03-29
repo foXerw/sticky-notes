@@ -110,6 +110,11 @@ def main():
 
     note = add_note(args.content, args.tags, args.pinned)
 
+    # 设置 stdout 为 UTF-8 编码
+    if sys.platform == 'win32':
+        import io
+        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
     print("[OK] 便签已添加!")
     print(f"  ID: {note['id']}")
     print(f"  标题：{note['title']}")
