@@ -8,14 +8,13 @@
 - 📝 **简易发布** - 通过提交代码发布新便签
 - 🏷️ **标签管理** - 支持多标签分类和过滤
 - 📱 **响应式设计** - 适配手机和电脑
-- 🎨 **单色主题** - 简洁清爽的界面
+- 🎨 **简约主题** - 浅黄配色，清爽界面
 
 ## 快速开始
 
 ### 1. 部署到 GitHub
 
 ```bash
-# 克隆或创建仓库后
 git init
 git add .
 git commit -m "Initial commit"
@@ -26,9 +25,10 @@ git push -u origin main
 
 ### 2. 启用 GitHub Pages
 
-1. 进入仓库 Settings → Pages
-2. Source 选择 "GitHub Actions"
-3. 等待部署完成
+1. 进入仓库 **Settings** → **Pages**
+2. **Source** 选择 `Deploy from a branch`
+3. **Branch** 选择 `main`，文件夹选择 `/src`
+4. 点击 Save
 
 ### 3. 访问便签
 
@@ -52,24 +52,23 @@ python scripts/add_note.py "置顶通知" --tags "公告" --pinned
 ### 发布便签到 GitHub
 
 ```bash
-git add data/notes.json
+git add src/data/notes.json
 git commit -m "添加便签：便签标题"
 git push
 ```
 
-GitHub Actions 会自动部署，几分钟后即可访问。
+推送后约 1 分钟，新便签就会同步到 GitHub Pages。
 
 ## 项目结构
 
 ```
 .
-├── .github/workflows/    # GitHub Actions 配置
 ├── assets/               # 静态资源
-├── data/
-│   └── notes.json        # 便签数据库
 ├── scripts/
 │   └── add_note.py       # 便签添加脚本
 ├── src/
+│   ├── data/
+│   │   └── notes.json    # 便签数据库
 │   ├── index.html        # 主页面
 │   ├── css/
 │   │   └── main.css      # 样式
@@ -82,7 +81,14 @@ GitHub Actions 会自动部署，几分钟后即可访问。
 
 ## 本地预览
 
-直接用浏览器打开 `src/index.html` 即可预览（需要 `data/notes.json` 中有数据）。
+启动本地服务器：
+
+```bash
+cd src
+python -m http.server 8000
+```
+
+访问 http://localhost:8000
 
 ## 许可证
 
